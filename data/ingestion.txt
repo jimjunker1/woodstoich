@@ -14,36 +14,36 @@ fuller2015, cp,2659.574468085106, mg_C_mg_ind-1_d-1,1.1183673469387756,
 fuller2015, cp,2744.68085106383, mg_C_mg_ind-1_d-1,0.7836734693877552,
 fuller2015, cp,3595.7446808510635, mg_C_mg_ind-1_d-1,0.5387755102040817,
 fuller2015, cp,4170.212765957447, mg_C_mg_ind-1_d-1,0.7591836734693878,
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1, 0.14222222222222222, dietID=0:1
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,1.4577777777777778,dietID=1:0
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.14736842105263157,dietID=0:1
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.7526315789473684,dietID=1:0
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,2.3243243243243246,dietID=0:1
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,2.1081081081081083,dietID=1:0
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.16363636363636364, dietID=0:1; n=15
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.1, dietID=0:1; n=15
+cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1, 0.14222222222222222, dietID=0:1;
+cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,1.4577777777777778,dietID=1:0;
+cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.14736842105263157,dietID=0:1;
+cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.7526315789473684,dietID=1:0;
+cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,2.3243243243243246,dietID=0:1;
+cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,2.1081081081081083,dietID=1:0;
+cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.16363636363636364, dietID=0:1;n=15
+cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.1, dietID=0:1;n=15
 cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.048484848484848485, dietID=0:1;n=15
 cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.12222222222222222, dietID=0:1;n=15
 cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.050505050505050504, dietID=1:0;n=15
 cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.015151515151515152, dietID=1:0;n=15
 cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.03535353535353535, dietID=1:0;n=15
 cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.013131313131313131, dietID=1:0;n=15
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.07339901477832514, dietID=0:1; n=15
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.05123152709359607, dietID=0:1; n=15
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.031034482758620693, dietID=0:1; n=15
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.06305418719211824, dietID=0:1; n=15
+cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.07339901477832514, dietID=0:1;n=15
+cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.05123152709359607, dietID=0:1;n=15
+cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.031034482758620693, dietID=0:1;n=15
+cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.06305418719211824, dietID=0:1;n=15
 cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.03990147783251232, dietID=1:0;n=15
 cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.009852216748768475, dietID=1:0;n=15
 cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.00788177339901478, dietID=1:0;n=15
 cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.008374384236453203, dietID=1:0;n=15
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.33636363636363636, dietID=0:1; n=40
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.2818181818181818, dietID=0:1; n=40
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.4393939393939394, dietID=0:1; n=40
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.48484848484848486, dietID=0:1; n=40
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.0030303030303030303, dietID=1:0; n=40
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.03939393939393939, dietID=1:0; n=40
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.07272727272727272, dietID=1:0; n=40
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.17575757575757575, dietID=1:0; n=40
+cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.33636363636363636, dietID=0:1;n=40
+cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.2818181818181818, dietID=0:1;n=40
+cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.4393939393939394, dietID=0:1;n=40
+cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.48484848484848486, dietID=0:1;n=40
+cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.0030303030303030303, dietID=1:0;n=40
+cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.03939393939393939, dietID=1:0;n=40
+cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.07272727272727272, dietID=1:0;n=40
+cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.17575757575757575, dietID=1:0;n=40
 fink2006, NA, NA, mg_C_mg-1_d-1,0.06627906976744186 ,dietID=+P+N;quantity=high
 fink2006, NA, NA, mg_C_mg-1_d-1,0.13643410852713178,dietID=+P-N;quantity=high
 fink2006, NA, NA, mg_C_mg-1_d-1,0.14302325581395348,dietID=-P+N;quantity=high

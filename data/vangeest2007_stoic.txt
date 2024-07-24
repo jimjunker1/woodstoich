@@ -1,5 +1,5 @@
-sourceID, dietID, stoich_var, stoic
-vangeest2007, storevatn, cp, 299
-vangeest2007, storevatn,cn, 12
-vangeest2007, goose, cp, 139
-vangeest2007, goose, cn, 11
+sourceID, dietID, stoich_var, stoich
+vangeest2007,storevatn,cp,299
+vangeest2007,storevatn,cn,12
+vangeest2007,goose,cp,139
+vangeest2007,goose,cn,11

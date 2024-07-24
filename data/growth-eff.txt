@@ -1,4 +1,4 @@
-sourceID, stoich_var, stioch, eff_var, eff, notes
+sourceID, stoich_var, stoich, eff_var, eff, notes
 demott1998, NA, NA, gge,0.538235294117647, dietID=0%;element=C;n=3
 demott1998, NA, NA, gge,0.5117647058823529, dietID=30%;element=C;n=3
 demott1998, NA, NA, gge,0.45294117647058824, dietID=50%;element=C;n=3

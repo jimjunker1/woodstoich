@@ -26,9 +26,9 @@ ferrão-filho2005, NA, NA,33.01587301587301, dietID=duck;species=Ceriodaphnia
 ferrão-filho2005, NA, NA,40, dietID=duck;species=Dpulex
 ferrão-filho2005, NA, NA,33.65079365079365, dietID=duck;species=Mmicrura
 ferrão-filho2005, NA, NA,84.12698412698413, dietID=duck;species=Dambigua
-ferrão-filho2005, NA, NA,72.38095238095238, dietID=lux arbor;species=Dpulex
-ferrão-filho2005, NA, NA,55.87301587301587, dietID=lux arbor;species=Mmicrura
-ferrão-filho2005, NA, NA,74.28571428571428, dietID=lux arbor;species=Dambigua
+ferrão-filho2005, NA, NA,72.38095238095238, dietID=lux_arbor;species=Dpulex
+ferrão-filho2005, NA, NA,55.87301587301587, dietID=lux_arbor;species=Mmicrura
+ferrão-filho2005, NA, NA,74.28571428571428, dietID=lux_arbor;species=Dambigua
 ferrão-filho2005, NA, NA,52.698412698412696, dietID=lawrence;species=Ceriodaphnia
 ferrão-filho2005, NA, NA,46.98412698412698, dietID=lawrence;species=Dpulex
 ferrão-filho2005, NA, NA,62.53968253968254, dietID=lawrence;species=Mmicrura
