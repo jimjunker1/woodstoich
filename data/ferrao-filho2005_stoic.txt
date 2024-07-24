@@ -1,0 +1,11 @@
+sourceID, dietID, stoich_var, stoich, notes
+ferrão-filho2005, douglas, cp, 128,mg_C_L-1=0.35
+ferrão-filho2005, douglas, cn, 8,mg_C_L-1=0.35
+ferrão-filho2005, duck, cn, 8.9,mg_C_L-1=0.52
+ferrão-filho2005, duck, cp, 148.8,mg_C_L-1=0.52
+ferrão-filho2005, lux arbor, cn, 13.0,mg_C_L-1=3.1
+ferrão-filho2005, lux arbor, cp, 385.1,mg_C_L-1=3.1
+ferrão-filho2005, lawrence, cn, 12.3,mg_C_L-1=0.47
+ferrão-filho2005, lawrence, cp, 482.6,mg_C_L-1=0.47
+ferrão-filho2005, warner, cn, 10.7,mg_C_L-1=0.71
+ferrão-filho2005, warner, cp, 401.8,mg_C_L-1=0.71 

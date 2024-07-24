@@ -1,0 +1,58 @@
+sourceID, stoich_var, stoich, growth_var, growth,notes
+fuller2015, cp, 944.4444444444445, mg_C_mg_ind-1_d-1, 0.009285714285714286,
+fuller2015, cp,2759.259259259259, mg_C_mg_ind-1_d-1,0.007357142857142857,
+fuller2015, cp,3611.1111111111113, mg_C_mg_ind-1_d-1,0.007,
+fuller2015, cp,1240.7407407407409, mg_C_mg_ind-1_d-1,0.011285714285714286,
+fuller2015, cp,2666.666666666667, mg_C_mg_ind-1_d-1,0.012,
+fuller2015, cp,4203.7037037037035, mg_C_mg_ind-1_d-1,0.010357142857142858,
+cruz-rivera2000, cn, NA, um_d-1,23.25581395348837,diet=1:0;n=18
+cruz-rivera2000, cn, NA, um_d-1,0,diet=9:1;n=0
+cruz-rivera2000, cn, NA, um_d-1,0,diet=3:1;n=0
+cruz-rivera2000, cn, NA, um_d-1,33.25581395348837,diet=1:1;n=20
+cruz-rivera2000, cn, NA, um_d-1,35.58139534883721,diet=0:1;n=15
+cruz-rivera2000, cn, NA, um_d-1,16,diet=1:0;n=18
+cruz-rivera2000, cn, NA, um_d-1,0,diet=9:1;n=0
+cruz-rivera2000, cn, NA, um_d-1,0,diet=3:1;n=0
+cruz-rivera2000, cn, NA, um_d-1,24.75,diet=1:1;n=26
+cruz-rivera2000, cn, NA, um_d-1,26.25,diet=0:1;n=27
+cruz-rivera2000, cn, NA, um_d-1,46.153846153846146,diet=1:0;n=17
+cruz-rivera2000, cn, NA, um_d-1,43.84615384615384,diet=9:1;n=19
+cruz-rivera2000, cn, NA, um_d-1,44.1025641025641,diet=3:1;n=21
+cruz-rivera2000, cn, NA, um_d-1,47.43589743589743,diet=1:1;n=22
+cruz-rivera2000, cn, NA, um_d-1,44.61538461538461,diet=0:1;n=26
+fink2006, NA, NA, mg_dw_d-1, 0.7447154471544716,dietID=+P+N;quantity=high
+fink2006, NA, NA, mg_dw_d-1,0.22276422764227644,dietID=+P-N;quantity=high
+fink2006, NA, NA, mg_dw_d-1,0.061788617886178863,dietID=-P+N;quantity=high
+fink2006, NA, NA, mg_dw_d-1,0.14959349593495935,dietID=-P-N;quantity=high
+fink2006, NA, NA, mg_dw_d-1,0.24065040650406505,dietID=+P+N;quantity=low
+fink2006, NA, NA, mg_dw_d-1,0.16585365853658537,dietID=+P-N;quantity=low
+fink2006, NA, NA, mg_dw_d-1,0.055284552845528454,dietID=-P+N;quantity=low
+fink2006, NA, NA, mg_dw_d-1,0.1073170731707317,dietID=-P-N;quantity=low
+vangeest2007, NA, NA, day-1,0.21483516483516482, dietID=storevatn
+vangeest2007, NA, NA, day-1,0.1087912087912088, dietID=goose
+demott1998, NA, NA, d-1, 0.5826923076923077, dietID=0%;n=3
+demott1998, NA, NA, d-1,0.551923076923077, dietID=30%;n=3
+demott1998, NA, NA, d-1,0.49423076923076925, dietID=50%;n=3
+demott1998, NA, NA, d-1,0.3557692307692308, dietID=70%;n=3
+demott1998, NA, NA, d-1,0.26153846153846155, dietID=90%;n=3
+demott1998, NA, NA, d-1,0.1653846153846154, dietID=100%;n=3
+darchambeau2003, cp, 80, %C_d-1,30.638297872340427,
+darchambeau2003, cp, 400,7.021276595744681,
+ferrão-filho2005, NA, NA,d-1,0.12380952380952381,dietID=douglas;species=Dpulex
+ferrão-filho2005, NA, NA,d-1,-0.02619047619047618,dietID=douglas;species=Mmicrura
+ferrão-filho2005, NA, NA,d-1,0.07857142857142858,dietID=douglas;species=Dambigua
+ferrão-filho2005, NA, NA,d-1,0.17857142857142858,dietID=duck;species=Ceriodaphnia
+ferrão-filho2005, NA, NA,d-1,0.15714285714285714,dietID=duck;species=Dpulex
+ferrão-filho2005, NA, NA,d-1,0.09285714285714286,dietID=duck;species=Mmicrura
+ferrão-filho2005, NA, NA,d-1,0.011904761904761918,dietID=duck;species=Dambigua
+ferrão-filho2005, NA, NA,d-1,0.38809523809523805, dietID=lux arbor;species=Dpulex
+ferrão-filho2005, NA, NA,d-1,0.30952380952380953, dietID=lux arbor;species=Mmicrura
+ferrão-filho2005, NA, NA,d-1,0.22857142857142856, dietID=lux arbor;species=Dambigua
+ferrão-filho2005, NA, NA,d-1,0.1738095238095238, dietID=lawrence;species=Ceriodaphnia
+ferrão-filho2005, NA, NA,d-1,0.4809523809523809, dietID=lawrence;species=Dpulex
+ferrão-filho2005, NA, NA,d-1,0.30238095238095236, dietID=lawrence;species=Mmicrura
+ferrão-filho2005, NA, NA,d-1,0.2976190476190476, dietID=lawrence;species=Dambigua
+ferrão-filho2005, NA, NA,d-1,0.2857142857142857, dietID=warner;species=Ceriodaphnia
+ferrão-filho2005, NA, NA,d-1,0.4642857142857143, dietID=warner;species=Dpulex
+ferrão-filho2005, NA, NA,d-1,0.4714285714285714, dietID=warner;species=Mmicrura
+ferrão-filho2005, NA, NA,d-1,0.2595238095238095, dietID=warner;species=Dambigua

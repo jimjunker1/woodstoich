@@ -1,0 +1,25 @@
+sourceID, stoich_var, stioch, eff_var, eff, notes
+demott1998, NA, NA, gge,0.538235294117647, dietID=0%;element=C;n=3
+demott1998, NA, NA, gge,0.5117647058823529, dietID=30%;element=C;n=3
+demott1998, NA, NA, gge,0.45294117647058824, dietID=50%;element=C;n=3
+demott1998, NA, NA, gge,0.3235294117647059, dietID=70%;element=C;n=3
+demott1998, NA, NA, gge,0.23529411764705882, dietID=90%;element=C;n=3
+demott1998, NA, NA, gge,0.14705882352941177, dietID=100%;element=C;n=3
+demott1998, NA, NA, npe, 0.6, dietID=0%;element=C;n=3
+demott1998, NA, NA, npe,0.6558823529411765,dietID=30%;element=C;n=3
+demott1998, NA, NA, npe,0.7235294117647059, dietID=50%;element=C;n=3
+demott1998, NA, NA, npe,0.6, dietID=70%;element=C;n=3
+demott1998, NA, NA, npe,0.49117647058823527, dietID=90%;element=C;n=3
+demott1998, NA, NA, npe,0.2911764705882353, dietID=100%;element=C;n=3
+demott1998, NA, NA, gge,0.4685714285714286, dietID=0%;element=P;n=3
+demott1998, NA, NA, gge,0.7571428571428571, dietID=30%;element=P;n=3
+demott1998, NA, NA, gge,0.8685714285714285, dietID=50%;element=P;n=3
+demott1998, NA, NA, gge,0.6685714285714286, dietID=70%;element=P;n=3
+demott1998, NA, NA, gge,0.5142857142857142, dietID=90%;element=P;n=3
+demott1998, NA, NA, gge,0.06285714285714286, dietID=100%;element=P;n=3
+demott1998, NA, NA, npe,0.46285714285714286, dietID=0%;element=P;n=3
+demott1998, NA, NA, npe,0.7542857142857143, dietID=30%;element=P;n=3
+demott1998, NA, NA, npe,0.8542857142857143, dietID=50%;element=P;n=3
+demott1998, NA, NA, npe,0.8571428571428571, dietID=70%;element=P;n=3
+demott1998, NA, NA, npe,0.6171428571428571, dietID=90%;element=P;n=3
+demott1998, NA, NA, npe,0.08285714285714285, dietID=100%;element=P;n=3

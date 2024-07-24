@@ -1,0 +1,2 @@
+sourceID, stoich_var, stioch, excret_var, excret, notes
+

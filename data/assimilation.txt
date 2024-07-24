@@ -1,0 +1,38 @@
+sourceID, stoich_var, stoich, assimilation_eff, notes
+fuller2015, cp, 918.0327868852459, 0.5894736842105264,
+fuller2015, cp, 2655.7377049180327, 0.4631578947368421,
+fuller2015, cp, 3590.1639344262294, 0.3315789473684211,
+fuller2015, cp, 1213.1147540983607, 0.5578947368421052,
+fuller2015, cp, 2688.524590163934, 0.5578947368421052,
+fuller2015, cp, 4163.934426229508, 0.7473684210526317,
+demott1998, NA, NA, 0.9216216216216215, dietID=0%;element=C;n=3
+demott1998, NA, NA,0.7837837837837838, dietID=30%;element=C;n=3
+demott1998, NA, NA,0.6405405405405404, dietID=50%;element=C;n=3
+demott1998, NA, NA,0.5486486486486486, dietID=70%;element=C;n=3
+demott1998, NA, NA,0.5027027027027027, dietID=90%;element=C;n=3
+demott1998, NA, NA,0.5108108108108108, dietID=100%;element=C;n=3
+demott1998, NA, NA,0.9999999999999999, dietID=0%;element=P;n=3
+demott1998, NA, NA,0.9945945945945944, dietID=30%;element=P;n=3
+demott1998, NA, NA,1.0432432432432432, dietID=50%;element=P;n=3
+demott1998, NA, NA,0.7729729729729728, dietID=70%;element=P;n=3
+demott1998, NA, NA,0.827027027027027, dietID=90%;element=P;n=3
+demott1998, NA, NA,0.7891891891891891, dietID=100%;element=P;n=3
+darchambeau2003, cp, 80,62.23404255319149, %C_d-1
+darchambeau2003, cp, 400, 59.361702127659576,%C_d-1
+ferrão-filho2005, NA, NA,43.49206349206349, dietID=douglas;species=Dpulex
+ferrão-filho2005, NA, NA,52.698412698412696, dietID=douglas;species=Mmicrura
+ferrão-filho2005, NA, NA,86.03174603174602, dietID=douglas;species=Dambigua
+ferrão-filho2005, NA, NA,33.01587301587301, dietID=duck;species=Ceriodaphnia
+ferrão-filho2005, NA, NA,40, dietID=duck;species=Dpulex
+ferrão-filho2005, NA, NA,33.65079365079365, dietID=duck;species=Mmicrura
+ferrão-filho2005, NA, NA,84.12698412698413, dietID=duck;species=Dambigua
+ferrão-filho2005, NA, NA,72.38095238095238, dietID=lux arbor;species=Dpulex
+ferrão-filho2005, NA, NA,55.87301587301587, dietID=lux arbor;species=Mmicrura
+ferrão-filho2005, NA, NA,74.28571428571428, dietID=lux arbor;species=Dambigua
+ferrão-filho2005, NA, NA,52.698412698412696, dietID=lawrence;species=Ceriodaphnia
+ferrão-filho2005, NA, NA,46.98412698412698, dietID=lawrence;species=Dpulex
+ferrão-filho2005, NA, NA,62.53968253968254, dietID=lawrence;species=Mmicrura
+ferrão-filho2005, NA, NA,56.19047619047619, dietID=lawrence;species=Dambigua
+ferrão-filho2005, NA, NA,72.38095238095238, dietID=warner;species=Dpulex
+ferrão-filho2005, NA, NA,91.74603174603175, dietID=warner;species=Mmicrura
+ferrão-filho2005, NA, NA,76.5079365079365, dietID=warner;species=Dambigua
