@@ -1,83 +1,83 @@
 sourceID, stoich_var, stoich, ingestion_var, ingestion,notes
-zhou2019, cp, 53.125, nmol_C_ind-1_h-1, 2.6950354609929077,
-zhou2019, cp, 73.4375, nmol_C_ind-1_h-1,3.0212765957446805,
-zhou2019, cp, 125, nmol_C_ind-1_h-1,3.7588652482269502,
-zhou2019, cp, 226.5625, nmol_C_ind-1_h-1,4.226950354609929,
-zhou2019, cp, 320.3125, nmol_C_ind-1_h-1,4.879432624113475,
-zhou2019, cp, 423.4375, nmol_C_ind-1_h-1,5.702127659574468,
-zhou2019, cp, 464.0625, nmol_C_ind-1_h-1,5.6879432624113475,
-zhou2019, cp, 509.375, nmol_C_ind-1_h-1,6.070921985815603,
-zhou2019, cp, 589.0625, nmol_C_ind-1_h-1,5.6879432624113475,
-fuller2015, cp,893.6170212765958, mg_C_mg_ind-1_d-1, 1.0122448979591838,
-fuller2015, cp,1212.7659574468084, mg_C_mg_ind-1_d-1,0.9387755102040817,
-fuller2015, cp,2659.574468085106, mg_C_mg_ind-1_d-1,1.1183673469387756,
-fuller2015, cp,2744.68085106383, mg_C_mg_ind-1_d-1,0.7836734693877552,
-fuller2015, cp,3595.7446808510635, mg_C_mg_ind-1_d-1,0.5387755102040817,
-fuller2015, cp,4170.212765957447, mg_C_mg_ind-1_d-1,0.7591836734693878,
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1, 0.14222222222222222, dietID=0:1;
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,1.4577777777777778,dietID=1:0;
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.14736842105263157,dietID=0:1;
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.7526315789473684,dietID=1:0;
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,2.3243243243243246,dietID=0:1;
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,2.1081081081081083,dietID=1:0;
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.16363636363636364, dietID=0:1;n=15
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.1, dietID=0:1;n=15
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.048484848484848485, dietID=0:1;n=15
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.12222222222222222, dietID=0:1;n=15
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.050505050505050504, dietID=1:0;n=15
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.015151515151515152, dietID=1:0;n=15
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.03535353535353535, dietID=1:0;n=15
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.013131313131313131, dietID=1:0;n=15
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.07339901477832514, dietID=0:1;n=15
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.05123152709359607, dietID=0:1;n=15
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.031034482758620693, dietID=0:1;n=15
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.06305418719211824, dietID=0:1;n=15
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.03990147783251232, dietID=1:0;n=15
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.009852216748768475, dietID=1:0;n=15
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.00788177339901478, dietID=1:0;n=15
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.008374384236453203, dietID=1:0;n=15
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.33636363636363636, dietID=0:1;n=40
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.2818181818181818, dietID=0:1;n=40
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.4393939393939394, dietID=0:1;n=40
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.48484848484848486, dietID=0:1;n=40
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.0030303030303030303, dietID=1:0;n=40
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.03939393939393939, dietID=1:0;n=40
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.07272727272727272, dietID=1:0;n=40
-cruz-rivera2000, cn, NA, no_squares_hr-1_ind-1,0.17575757575757575, dietID=1:0;n=40
-fink2006, NA, NA, mg_C_mg-1_d-1,0.06627906976744186 ,dietID=+P+N;quantity=high
-fink2006, NA, NA, mg_C_mg-1_d-1,0.13643410852713178,dietID=+P-N;quantity=high
-fink2006, NA, NA, mg_C_mg-1_d-1,0.14302325581395348,dietID=-P+N;quantity=high
-fink2006, NA, NA, mg_C_mg-1_d-1,0.1883720930232558,dietID=-P-N;quantity=high
-fink2006, NA, NA, mg_C_mg-1_d-1,0.0562015503875969,dietID=+P+N;quantity=low
-fink2006, NA, NA, mg_C_mg-1_d-1,0.04883720930232558,dietID=+P-N;quantity=low
-fink2006, NA, NA, mg_C_mg-1_d-1,0.02868217054263566,dietID=-P+N;quantity=low
-fink2006, NA, NA, mg_C_mg-1_d-1,0.04496124031007752,dietID=-P-N;quantity=low
-demott1998, NA, NA, ug_C_d-1,69,dietID=30%;n=3
-demott1998, NA, NA, ug_C_d-1,56.75,dietID=50%;n=3
-demott1998, NA, NA, ug_C_d-1,46.5,dietID=70%;n=3
-demott1998, NA, NA, ug_C_d-1,39,dietID=90%;n=3
-demott1998, NA, NA, ug_C_d-1,41.5,dietID=100%;n=3
-demott1998, NA, NA, ug_C_ug_C_d-1,1.0173913043478262,dietID=30%;n=3
-demott1998, NA, NA, ug_C_ug_C_d-1,0.9521739130434783,dietID=50%;n=3
-demott1998, NA, NA, ug_C_ug_C_d-1,1.0173913043478262,dietID=70%;n=3
-demott1998, NA, NA, ug_C_ug_C_d-1,0.9956521739130435,dietID=90%;n=3
-demott1998, NA, NA, ug_C_ug_C_d-1,1.2608695652173914,dietID=100%;n=3
-darchambeau2003, cp, 80, %C_d-1, 93.19148936170214,
-darchambeau2003, cp, 400, %C_d-1,87.12765957446808,
-ferrão-filho2005, NA, NA,mg_mg-1_h-1,121.42857142857142,dietID=douglas;species=Dpulex
-ferrão-filho2005, NA, NA,mg_mg-1_h-1,35.714285714285715,dietID=douglas;species=Mmicrura
-ferrão-filho2005, NA, NA,mg_mg-1_h-1,47.61904761904761,dietID=douglas;species=Dambigua
-ferrão-filho2005, NA, NA,mg_mg-1_h-1,24.76190476190476,dietID=duck;species=Ceriodaphnia
-ferrão-filho2005, NA, NA,mg_mg-1_h-1,45.71428571428571,dietID=duck;species=Dpulex
-ferrão-filho2005, NA, NA,mg_mg-1_h-1,16.666666666666664,dietID=duck;species=Mmicrura
-ferrão-filho2005, NA, NA,mg_mg-1_h-1,19.047619047619047,dietID=duck;species=Dambigua
-ferrão-filho2005, NA, NA,mg_mg-1_h-1,26.19047619047619,dietID=lux arbor;species=Dpulex
-ferrão-filho2005, NA, NA,mg_mg-1_h-1,26.19047619047619,dietID=lux arbor;species=Mmicrura
-ferrão-filho2005, NA, NA,mg_mg-1_h-1,28.095238095238095,dietID=lux arbor;species=Dambigua
-ferrão-filho2005, NA, NA,mg_mg-1_h-1,100.47619047619047, dietID=lawrence;species=Ceriodaphnia
-ferrão-filho2005, NA, NA,mg_mg-1_h-1,170.95238095238093, dietID=lawrence;species=Dpulex
-ferrão-filho2005, NA, NA,mg_mg-1_h-1,70.95238095238095, dietID=lawrence;species=Mmicrura
-ferrão-filho2005, NA, NA,mg_mg-1_h-1,167.14285714285714, dietID=lawrence;species=Dambigua
-ferrão-filho2005, NA, NA,mg_mg-1_h-1,165.23809523809524, dietID=warner;species=Dpulex
-ferrão-filho2005, NA, NA,mg_mg-1_h-1,64.28571428571428, dietID=warner;species=Mmicrura
-ferrão-filho2005, NA, NA,mg_mg-1_h-1,53.8095238095238, dietID=warner;species=Dambigua
+zhou2019,CPmol,53.125,nmol_C_ind-1_h-1, 2.6950354609929077,
+zhou2019,CPmol,73.4375,nmol_C_ind-1_h-1,3.0212765957446805,
+zhou2019,CPmol,125,nmol_C_ind-1_h-1,3.7588652482269502,
+zhou2019,CPmol,226.5625,nmol_C_ind-1_h-1,4.226950354609929,
+zhou2019,CPmol,320.3125,nmol_C_ind-1_h-1,4.879432624113475,
+zhou2019,CPmol,423.4375,nmol_C_ind-1_h-1,5.702127659574468,
+zhou2019,CPmol,464.0625,nmol_C_ind-1_h-1,5.6879432624113475,
+zhou2019,CPmol,509.375,nmol_C_ind-1_h-1,6.070921985815603,
+zhou2019,CPmol,589.0625,nmol_C_ind-1_h-1,5.6879432624113475,
+fuller2015,CPmol,893.6170212765958, mg_C_mg_ind-1_d-1, 1.0122448979591838,
+fuller2015,CPmol,1212.7659574468084, mg_C_mg_ind-1_d-1,0.9387755102040817,
+fuller2015,CPmol,2659.574468085106, mg_C_mg_ind-1_d-1,1.1183673469387756,
+fuller2015,CPmol,2744.68085106383, mg_C_mg_ind-1_d-1,0.7836734693877552,
+fuller2015,CPmol,3595.7446808510635, mg_C_mg_ind-1_d-1,0.5387755102040817,
+fuller2015,CPmol,4170.212765957447, mg_C_mg_ind-1_d-1,0.7591836734693878,
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1, 0.14222222222222222, dietID=0:1;
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,1.4577777777777778,dietID=1:0;
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.14736842105263157,dietID=0:1;
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.7526315789473684,dietID=1:0;
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,2.3243243243243246,dietID=0:1;
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,2.1081081081081083,dietID=1:0;
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.16363636363636364, dietID=0:1;n=15
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.1, dietID=0:1;n=15
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.048484848484848485, dietID=0:1;n=15
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.12222222222222222, dietID=0:1;n=15
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.050505050505050504, dietID=1:0;n=15
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.015151515151515152, dietID=1:0;n=15
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.03535353535353535, dietID=1:0;n=15
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.013131313131313131, dietID=1:0;n=15
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.07339901477832514, dietID=0:1;n=15
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.05123152709359607, dietID=0:1;n=15
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.031034482758620693, dietID=0:1;n=15
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.06305418719211824, dietID=0:1;n=15
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.03990147783251232, dietID=1:0;n=15
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.009852216748768475, dietID=1:0;n=15
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.00788177339901478, dietID=1:0;n=15
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.008374384236453203, dietID=1:0;n=15
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.33636363636363636, dietID=0:1;n=40
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.2818181818181818, dietID=0:1;n=40
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.4393939393939394, dietID=0:1;n=40
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.48484848484848486, dietID=0:1;n=40
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.0030303030303030303, dietID=1:0;n=40
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.03939393939393939, dietID=1:0;n=40
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.07272727272727272, dietID=1:0;n=40
+cruz-rivera2000,NA,NA, no_squares_hr-1_ind-1,0.17575757575757575, dietID=1:0;n=40
+fink2006,NA,NA,mg_C_mg-1_d-1,0.06627906976744186 ,dietID=+P+N;quantity=high
+fink2006,NA,NA,mg_C_mg-1_d-1,0.13643410852713178,dietID=+P-N;quantity=high
+fink2006,NA,NA,mg_C_mg-1_d-1,0.14302325581395348,dietID=-P+N;quantity=high
+fink2006,NA,NA,mg_C_mg-1_d-1,0.1883720930232558,dietID=-P-N;quantity=high
+fink2006,NA,NA,mg_C_mg-1_d-1,0.0562015503875969,dietID=+P+N;quantity=low
+fink2006,NA,NA,mg_C_mg-1_d-1,0.04883720930232558,dietID=+P-N;quantity=low
+fink2006,NA,NA,mg_C_mg-1_d-1,0.02868217054263566,dietID=-P+N;quantity=low
+fink2006,NA,NA,mg_C_mg-1_d-1,0.04496124031007752,dietID=-P-N;quantity=low
+demott1998,NA,NA, ug_C_d-1,69,dietID=30%;n=3
+demott1998,NA,NA, ug_C_d-1,56.75,dietID=50%;n=3
+demott1998,NA,NA, ug_C_d-1,46.5,dietID=70%;n=3
+demott1998,NA,NA, ug_C_d-1,39,dietID=90%;n=3
+demott1998,NA,NA, ug_C_d-1,41.5,dietID=100%;n=3
+demott1998,NA,NA, ug_C_ug_C_d-1,1.0173913043478262,dietID=30%;n=3
+demott1998,NA,NA, ug_C_ug_C_d-1,0.9521739130434783,dietID=50%;n=3
+demott1998,NA,NA, ug_C_ug_C_d-1,1.0173913043478262,dietID=70%;n=3
+demott1998,NA,NA, ug_C_ug_C_d-1,0.9956521739130435,dietID=90%;n=3
+demott1998,NA,NA, ug_C_ug_C_d-1,1.2608695652173914,dietID=100%;n=3
+darchambeau2003,CPmol,80, %C_d-1, 93.19148936170214,
+darchambeau2003,CPmol,400, %C_d-1,87.12765957446808,
+ferrão-filho2005,NA,NA,mg_mg-1_h-1,121.42857142857,dietID=lawrence;species=Dpulex
+ferrão-filho2005,NA,NA,mg_mg-1_h-1,35.714285714285,dietID=lawrence;species=Mmicrura
+ferrão-filho2005,NA,NA,mg_mg-1_h-1,47.619047619047,dietID=lawrence;species=Dambigua
+ferrão-filho2005,NA,NA,mg_mg-1_h-1,24.761904761904,dietID=warner;species=Ceriodaphnia
+ferrão-filho2005,NA,NA,mg_mg-1_h-1,45.714285714285,dietID=warner;species=Dpulex
+ferrão-filho2005,NA,NA,mg_mg-1_h-1,16.666666666666,dietID=warner;species=Mmicrura
+ferrão-filho2005,NA,NA,mg_mg-1_h-1,19.047619047619,dietID=warner;species=Dambigua
+ferrão-filho2005,NA,NA,mg_mg-1_h-1,26.190476190476,dietID=lux arbor;species=Dpulex
+ferrão-filho2005,NA,NA,mg_mg-1_h-1,26.190476190476,dietID=lux arbor;species=Mmicrura
+ferrão-filho2005,NA,NA,mg_mg-1_h-1,28.095238095238,dietID=lux arbor;species=Dambigua
+ferrão-filho2005,NA,NA,mg_mg-1_h-1,100.476190476,dietID=douglas;species=Ceriodaphnia
+ferrão-filho2005,NA,NA,mg_mg-1_h-1,170.9523809523,dietID=douglas;species=Dpulex
+ferrão-filho2005,NA,NA,mg_mg-1_h-1,70.95238095238,dietID=douglas;species=Mmicrura
+ferrão-filho2005,NA,NA,mg_mg-1_h-1,167.1428571428,dietID=douglas;species=Dambigua
+ferrão-filho2005,NA,NA,mg_mg-1_h-1,165.23809523809,dietID=duck;species=Dpulex
+ferrão-filho2005,NA,NA,mg_mg-1_h-1,64.2857142857,dietID=duck;species=Mmicrura
+ferrão-filho2005,NA,NA,mg_mg-1_h-1,53.8095238095238, dietID=duck;species=Dambigua

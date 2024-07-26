@@ -23,3 +23,9 @@ demott1998, NA, NA, npe,0.8542857142857143, dietID=50%;element=P;n=3
 demott1998, NA, NA, npe,0.8571428571428571, dietID=70%;element=P;n=3
 demott1998, NA, NA, npe,0.6171428571428571, dietID=90%;element=P;n=3
 demott1998, NA, NA, npe,0.08285714285714285, dietID=100%;element=P;n=3
+fuller2015, CPmol,935.483870967742, npe, 0.02564103,element=C
+fuller2015, CPmol,1209.6774193548388, npe,0.04102564,element=C
+fuller2015, CPmol,2612.9032258064517, npe,0.03076923,element=C
+fuller2015, CPmol,2709.6774193548385, npe,0.03076923,element=C
+fuller2015, CPmol,3564.516129032258, npe,0.06153846,element=C
+fuller2015, CPmol,4129.032258064516, npe,0.03589744,element=C

@@ -1,7 +1,8 @@
-here::i_am("data/01_data-cleaning.R")
+here::i_am("code/01_data-cleaning.R")
 library(tidyverse)
 library(here)
-
+'%ni%' <- Negate('%in%')
+theme_set(theme_minimal())
 # clean the stoichiometry resource data from specific papers
 
 ## cruz-rivera2000
@@ -75,13 +76,18 @@ assimilation <- read.table(
   sep = ',', header = TRUE, strip.white = TRUE) %>%
   mutate(dietID = ifelse(is.na(stoich_var), gsub("dietID=(\\w{1,}.)\\;.*", "\\1", notes),NA)) %>%
   merge(source_stoic %>% pivot_longer(cols = contains('mol'),names_to = 'stoich_var', values_to = 'stoich'),
-            by = c('sourceID', 'dietID')) %>%
-  select(-stoich_var.x, -stoich.x) %>%
-  select(sourceID, dietID, stoich_var = 'stoich_var.y', stoich = 'stoich.y', assimilation_eff, notes) %>%
+            by = c('sourceID', 'dietID'), all.x = TRUE) %>%
+  # select(-stoich_var.x, -stoich.x) %>%
+  mutate(stoich_var = coalesce(stoich_var.x, stoich_var.y),
+         stoich = coalesce(stoich.x, stoich.y)) %>%
+  select(sourceID, dietID, stoich_var, stoich, assimilation_eff, notes) %>%
+  filter(!grepl("element=P",notes, ignore.case = TRUE)) %>%
+  bind_rows(urabe_cla %>%
+              select(sourceID, assimilation_eff, CPmol) %>%
+              pivot_longer(cols = CPmol, names_to = 'stoich_var', values_to = 'stoich'))%>%
   mutate(assimilation_eff = case_when(assimilation_eff > 2 ~assimilation_eff/100,
                                       between(assimilation_eff,1,2) ~ 1,
                                       .default = assimilation_eff)) %>%
-  filter(!grepl("element=P",notes, ignore.case = TRUE)) %>%
   mutate(assimilation_eff = round(assimilation_eff,3))
 
 ## growth-eff
@@ -91,11 +97,14 @@ growth_eff <- read.table(
   sep = ',', header = TRUE, strip.white = TRUE) %>%
   mutate(dietID = ifelse(is.na(stoich_var), gsub("dietID=(\\w{1,}.)\\;.*", "\\1", notes),NA)) %>%
   merge(source_stoic %>% pivot_longer(cols = contains('mol'),names_to = 'stoich_var', values_to = 'stoich'),
-        by = c('sourceID', 'dietID')) %>%
-  select(-stoich_var.x, -stoich.x) %>%
-  select(sourceID, dietID, stoich_var = 'stoich_var.y', stoich = 'stoich.y', eff_var, eff, notes) %>%
+        by = c('sourceID', 'dietID'), all.x = TRUE) %>%
+  # select(-stoich_var.x, -stoich.x) %>%
+  mutate(stoich_var = coalesce(stoich_var.x, stoich_var.y),
+         stoich = coalesce(stoich.x, stoich.y)) %>%
+  select(sourceID, dietID, stoich_var, stoich, eff_var, eff, notes) %>%
   filter(!is.na(stoich),
-         !grepl("element=P",notes, ignore.case = TRUE)) %>%
+         !grepl("element=P",notes, ignore.case = TRUE),
+         sourceID != 'fuller2015') %>%
   mutate(eff = round(eff,3))
 
 ## growth
@@ -108,11 +117,16 @@ growth <- read.table(
                             is.na(stoich_var) & grepl("dietID=(.P.N)\\;.*", notes) ~ gsub("dietID=(.P.N)\\;.*", "\\1", notes),
                             .default = NA_character_)) %>%
   merge(source_stoic %>% pivot_longer(cols = contains('mol'),names_to = 'stoich_var', values_to = 'stoich'),
-        by = c('sourceID', 'dietID')) %>%
-  select(-stoich_var.x, -stoich.x) %>%
-  select(sourceID, dietID, stoich_var = 'stoich_var.y', stoich = 'stoich.y', growth_var, growth, notes) %>%
+        by = c('sourceID', 'dietID'), all.x = TRUE) %>%
+  # select(-stoich_var.x, -stoich.x) %>%
+  mutate(stoich_var = coalesce(stoich_var.x, stoich_var.y),
+         stoich = coalesce(stoich.x, stoich.y)) %>%
+  select(sourceID, dietID, stoich_var, stoich, growth_var, growth, notes) %>%
   filter(!is.na(stoich),
          !grepl("element=P",notes, ignore.case = TRUE)) %>%
+  bind_rows(urabe_growth %>%
+              select(sourceID, growth_var, growth, CPmol, CNmol) %>%
+              pivot_longer(cols = c(CPmol, CNmol), names_to = 'stoich_var', values_to = 'stoich')) %>%
   mutate(growth = ifelse(growth < 0, 0.001, growth),
          growth = round(growth,3))
 
@@ -126,9 +140,21 @@ ingestion <- read.table(
                             is.na(stoich_var) & grepl("dietID=(.P.N)\\;.*", notes) ~ gsub("dietID=(.P.N)\\;.*", "\\1", notes),
                             .default = NA_character_)) %>%
   merge(source_stoic %>% pivot_longer(cols = contains('mol'),names_to = 'stoich_var', values_to = 'stoich'),
-        by = c('sourceID', 'dietID')) %>%
-  select(-stoich_var.x, -stoich.x) %>%
-  select(sourceID, dietID, stoich_var = 'stoich_var.y', stoich = 'stoich.y', ingestion_var, ingestion, notes) %>%
+        by = c('sourceID', 'dietID'), all.x = TRUE) %>%
+  # select(-stoich_var.x, -stoich.x) %>%
+  mutate(stoich_var = coalesce(stoich_var.x, stoich_var.y),
+         stoich = coalesce(stoich.x, stoich.y)) %>%
+  select(sourceID, dietID, stoich_var, stoich, ingestion_var, ingestion, notes) %>%
   filter(!is.na(stoich),
          !grepl("element=P",notes, ignore.case = TRUE)) %>%
+  bind_rows(urabe_growth %>%
+              select(sourceID, ingestion_var, ingestion, CPmol, CNmol) %>%
+              pivot_longer(cols = c(CPmol, CNmol), names_to = 'stoich_var', values_to = 'stoich')) %>%
+  bind_rows(urabe_cla %>%
+              select(sourceID, ingestion_var, ingestion, CPmol) %>%
+              pivot_longer(cols = CPmol, names_to = 'stoich_var', values_to = 'stoich'))%>%
   mutate(ingestion = round(ingestion,3))
+
+# remove unneeded objects
+
+rm(list = ls()[ls() %ni% c("assimilation","growth","growth_eff","ingestion")])
