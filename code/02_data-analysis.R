@@ -59,7 +59,8 @@ growth %>%
 # standardize the effects by ingestion variable
 
 ingestion %>%
-  filter(ingestion_var %in% c("ug_C_ug_C_d-1",
+  filter(ingestion_var %in% c("ug_C_d-1",
+                              "ug_C_ug_C_d-1",
                               "mg_mg-1_h-1",
                               "mg_C_mg-1_d-1",
                               "mg_C_mg_ind-1_d-1"),
@@ -82,8 +83,7 @@ ingestion %>%
 
 
   ingestion %>%
-    filter(ingestion_var %in% c("ug_C_d-1",
-                                "no_squares_hr-1_ind-1",
+    filter(ingestion_var %in% c("no_squares_hr-1_ind-1",
                                 "nmol_C_ind-1_h-1",
                                 "ugC_ind-1_d-1",
                                 "mL_h-1_ind-1"),
@@ -100,5 +100,5 @@ ingestion %>%
              guides(color = 'none',
                     fill = 'none')+
              scale_shape_manual(values = 21:25)+
-             scale_y_continuous(name = expression(log[10]~"[Ingestion (mass * "*mass^-1*"*"*time^-1*")]"))+
+             scale_y_continuous(name = expression(log[10]~"[Ingestion (mass * "*ind^-1*"*"*time^-1*")]"))+
              facet_wrap(~stoich_var, scales = 'free')
