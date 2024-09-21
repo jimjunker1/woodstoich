@@ -110,3 +110,32 @@ getDEB.implied <- function(species) {
   return(final)
 }
 
+## this is a rough function to subset the allStat list by variable.
+## I don't like it in general but it gets the job done and doesn't completely
+## wipe the attributes
+## it takes `variable` order, family, species, etc.
+## and `string` ""
+allStat_select = function(variable = NULL, string = NULL,...){
+  matches = lapply(allStat$allStat, function(x){
+    labs = labels(x)[[1]]
+    variable_pos = which(labs == variable)
+    unlist(x)[variable_pos] == string
+  })
+  match_list = allStat$allStat[unlist(matches)]
+
+  return(match_list)
+}
+
+##
+allStat_get_pars = function(variables = NULL, list = NULL,...){
+  library(purrr)
+  # library(rlist)
+  cleanList = map(list, \(x){
+    pList = x
+    # pList = pluck(x,1)
+    var_vec = which(unlist(labels(pList)) %in% variables)
+    pList[var_vec]
+  })
+  return(cleanList)
+}
+
