@@ -1,3 +1,4 @@
+library(sjlabelled)
 getDEB.species <- function() {
   require(rvest)
   library(rvest)
@@ -115,12 +116,21 @@ getDEB.implied <- function(species) {
 ## wipe the attributes
 ## it takes `variable` order, family, species, etc.
 ## and `string` ""
-allStat_select = function(variable = NULL, string = NULL,...){
-  matches = lapply(allStat$allStat, function(x){
+allStat_select = function(variable = NULL, string = NULL, grep = FALSE,...){
+  if(grep){
+    matches = lapply(allStat$allStat, function(x){
+      labs = labels(x)[[1]]
+      variable_pos = which(labs == variable)
+      grepl(string, unlist(x)[variable_pos], ignore.case = TRUE)
+    })
+
+    } else{
+    matches = lapply(allStat$allStat, function(x){
     labs = labels(x)[[1]]
     variable_pos = which(labs == variable)
     unlist(x)[variable_pos] == string
   })
+    }
   match_list = allStat$allStat[unlist(matches)]
 
   return(match_list)
@@ -132,10 +142,13 @@ allStat_get_pars = function(variables = NULL, list = NULL,...){
   # library(rlist)
   cleanList = map(list, \(x){
     pList = x
-    # pList = pluck(x,1)
-    var_vec = which(unlist(labels(pList)) %in% variables)
-    pList[var_vec]
+    var_vec = na.omit(match(variables,unlist(labels(pList))))
+    names = unlist(labels(pList))[var_vec]
+    pDf = data.frame(pList[var_vec])
+    colnames(pDf) <- names
+    pDf
   })
+
   return(cleanList)
 }
 
