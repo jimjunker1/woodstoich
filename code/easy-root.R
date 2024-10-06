@@ -1,65 +1,68 @@
 library(rootSolve)
 library(tidyverse)
 #
-# model <- function(x){
-# # x[1] = rdot; x[2] = JECc
-#   Bs = 1
-#   kg = 1
-#   MV = 0.007
-#   kM = 0.25
-#   YVEc = 0.99
-#   YVEn = 0.99
-#   kappa = 0.58
-#   sigma = 0  # <- simpilfied for this case
-#   JAEcmax = 0.6
-#   JAEnmax = 0.8
-#   MEnmax = 0.13
-#   MEcmax = 0.385
-#   MEc = 0.1
-#   MEn = 0.04
-# # set out the function of fluxes
-# F1 <- 1/MV*(kg/(1+(YVEc*(kappa*x[2]-(1+sigma)*kM*MV/YVEc)^(-1)+(YVEc*(kappa*x[2]-(1+sigma)*kM*MV/YVEc))))^(-1)) - x[1]
-#
-# F2 <- MEc*(JAEcmax/MEcmax)-MV*x[1] - x[2]
-# q = c(F1 = F1, F2 = F2)
-# return(q)}
-# rdotSt = 0.05
-# JEcGSt = 0.008
-# JEnGSt = 0.004
-# (ss <- multiroot(f = model, start = c(rdotSt, JEcGSt), maxiter = 1e4))
+model <- function(x){
+# x[1] = rdot; x[2] = JECc
+  Bs = 1
+  kg = 1
+  MV = 0.007
+  kM = 0.25
+  YVEc = 0.99
+  YVEn = 0.99
+  kappa = 0.58
+  sigma = 0  # <- simpilfied for this case
+  JAEcmax = 0.6
+  JAEnmax = 0.8
+  MEnmax = 0.13
+  MEcmax = 0.385
+  MEc = 100
+  MEn = 50
+# set out the function of fluxes
+F1 <- 1/MV*(kg/(1+(YVEc*(kappa*x[2]-(1+sigma)*kM*MV/YVEc)^(-1)+(YVEc*(kappa*x[2]-(1+sigma)*kM*MV/YVEc))))^(-1)) - x[1]
+
+F2 <- MEc*(JAEcmax/MEcmax)-MV*x[1] - x[2]
+q = c(F1 = F1, F2 = F2)
+return(q)}
+rdotSt = 0.05
+JEcGSt = 0.008
+JEnGSt = 0.004
+(ss <- multiroot(f = model, start = c(rdotSt, JEcGSt), maxiter = 1e4))
 #
 #
 # #
-#   model <- function(x){
-#     #x[1] = rdot, x[2] = JECc, x[3] = JECn
-#     kg = 1
-#     MV = 1
-#     kM = 0.25
-#     YVEc = 0.5
-#     # YSEn = 0.01
-#     sigma = 0  # <- simpilfied for this case
-#     JAEcmax = 0.6
-#     JAEnmax = 0.8
-#     MEnmax = 0.13
-#     MEcmax = 0.385
-#     MEc = 0.1
-#     MEn = 0.04
-#   #Quadratic equation
-#  F1 <- 1/MV*(kg/(1+(YVEc*(kappa*x[2])))) - x[1]
-#  F2 <- YSEc*JSEc*(JSEc+JSEn) - ((1+sigma)*kM*MV)*(Bs*JSEc+JSEc+JSEn) - x[2]
-#  F3 <- -JSEc*(JSEc + JSEn)*((1+sigma)*kM*MV) - x[3]
-#  q = c(F1 = F1, F2 = F2, F3 = F3)
-#  return(q)}
-#   rdot = 0.008
-#   JEcGst = 300
-#   JEnGst = 100
-#   (ss <- multiroot(f = model, start = c(rdot, JEcGst, JEnGst), maxiter = 1e4))
-#
-#
-# rootDf = rootList %>% map(~.x %>% pluck('root') %>% setNames(., nm = c('rdot','JECc','JECn'))) %>% bind_rows %>%
-#   bind_cols(parsDf,.)
-#
-# nrow(rootDf %>% filter(all(rdot > 0 & JECc > 0 & JECn > 0 )))
+  model <- function(x){
+    #x[1] = rdot, x[2] = JECc, x[3] = JECn
+    kg = 1
+    MV = 1
+    kM = 0.25
+    YVEc = 0.5
+    YSEc =
+    # YSEn = 0.01
+    sigma = 0  # <- simpilfied for this case
+    JAEcmax = 0.6
+    JAEnmax = 0.8
+    MEnmax = 0.13
+    MEcmax = 0.385
+    MEc = 0.1
+    MEn = 0.04
+    Bs = 0.1
+    kappa = 0.58
+  #Quadratic equation
+ F1 <- 1/MV*(kg/(1+(YVEc*(kappa*x[2])))) - x[1]
+ F2 <- YSEc*JSEc*(JSEc+JSEn) - ((1+sigma)*kM*MV)*(Bs*JSEc+JSEc+JSEn) - x[2]
+ F3 <- -JSEc*(JSEc + JSEn)*((1+sigma)*kM*MV) - x[3]
+ q = c(F1 = F1, F2 = F2, F3 = F3)
+ return(q)}
+  rdot = 0.008
+  JEcGst = 300
+  JEnGst = 100
+  (ss <- multiroot(f = model, start = c(rdot, JEcGst, JEnGst), maxiter = 1e4))
+
+
+rootDf = rootList %>% map(~.x %>% pluck('root') %>% setNames(., nm = c('rdot','JECc','JECn'))) %>% bind_rows %>%
+  bind_cols(parsDf,.)
+
+nrow(rootDf %>% filter(all(rdot > 0 & JECc > 0 & JECn > 0 )))
 
 
 ### simplified root
@@ -82,9 +85,10 @@ parsDf = expand.grid(
             MEc = 1000,
             MEn = 200
             )
-parsList = split(parsDf, seq(nrow(parsDf)))
+# parsList = split(parsDf, seq(nrow(parsDf)))
 
-rootList= purrr::map(parsList, \(y){
+# rootList= purrr::map(parsList, \(y){
+calc_root_rdot = function(){
   model <- function(x){
     #x[1] = rdot, x[2] = JECc, x[3] = JECn
     kg = y[['kg']]
@@ -114,11 +118,17 @@ rdot = 1
 JECc = 5
 JECn = 3
   (ss <- multiroot(f = model, start = c(rdot, JECc, JECn), maxiter = 1e2))
-})
+ss.root = ss$root
+colnames(ss.root) <- c("rdot", "JECc","JECn")
+
+return(unlist(ss.root))
+}
 
 rootDf = rootList %>% map(~.x %>% pluck('root') %>% setNames(., nm = c('rdot','JECc','JECn'))) %>% bind_rows %>%
   bind_cols(parsDf,.)
 
 nrow(rootDf %>% filter(all(rdot > 0 & JECc > 0 & JECn > 0 )))
+
+
 
 
