@@ -52,11 +52,11 @@ fink2006,NA,NA,mg_C_mg-1_d-1,0.0562015503875969,dietID=+P+N;quantity=low
 fink2006,NA,NA,mg_C_mg-1_d-1,0.04883720930232558,dietID=+P-N;quantity=low
 fink2006,NA,NA,mg_C_mg-1_d-1,0.02868217054263566,dietID=-P+N;quantity=low
 fink2006,NA,NA,mg_C_mg-1_d-1,0.04496124031007752,dietID=-P-N;quantity=low
-demott1998,NA,NA, ug_C_d-1,69,dietID=30%;n=3
-demott1998,NA,NA, ug_C_d-1,56.75,dietID=50%;n=3
-demott1998,NA,NA, ug_C_d-1,46.5,dietID=70%;n=3
-demott1998,NA,NA, ug_C_d-1,39,dietID=90%;n=3
-demott1998,NA,NA, ug_C_d-1,41.5,dietID=100%;n=3
+demott1998a,NA,NA, ug_C_d-1,69,dietID=30%;n=3
+demott1998a,NA,NA, ug_C_d-1,56.75,dietID=50%;n=3
+demott1998a,NA,NA, ug_C_d-1,46.5,dietID=70%;n=3
+demott1998a,NA,NA, ug_C_d-1,39,dietID=90%;n=3
+demott1998a,NA,NA, ug_C_d-1,41.5,dietID=100%;n=3
 demott1998,NA,NA, ug_C_ug_C_d-1,1.0173913043478262,dietID=30%;n=3
 demott1998,NA,NA, ug_C_ug_C_d-1,0.9521739130434783,dietID=50%;n=3
 demott1998,NA,NA, ug_C_ug_C_d-1,1.0173913043478262,dietID=70%;n=3

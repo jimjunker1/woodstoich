@@ -1,0 +1,165 @@
+---
+date: '`r format(Sys.Date())`'
+title: AMP parameters report
+output: html_document
+---
+
+```{r init, echo=FALSE, warning=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(here)
+i_am("docs/AMP-pars-report.Rmd")
+source(here("code/get-pars-functions.R"))
+library(rvest)
+library(tidyverse)
+## load the parameter file
+load(file = here("data/allStat.Rda"))
+```
+
+```{r set up list}
+
+## interesting variables
+vars = c("species", # species
+         "family", #family
+         "order",
+         "class",
+         "phylum",
+         "T.typical",
+         "J.X.Am", # mass-based max ingestion
+         "p.Xm", # energy-based max ingestion
+         "J.E.Am", # mass-based max assimilation
+         "p.Am", # energy-based max assimilation
+         "K", # type II function half saturation
+         "F.m", # type II specific searching rate
+         "r.B", # specific growth rate. "r.B" = von Bertalanffy growth rates
+         "M.V", # volume specific structural mass
+         "kap", # fraction of reserve sent to somatic
+         "kap.G", # growth efficiency
+         # , # fraction of rejected flux reserve from SU
+         "m.Em", # mass-based max reserve density
+         "E.m", # energy based max reserve density
+          # , # max somatic structural body Volume
+         "del.V", # max somatic structural body biomass # this is a guess based on fraction of max weight that is structure
+         "y.V.E", # yield of structure produced from reserve
+         "y.E.X", # yield of reserve produced from food
+         "k.M", # somatic maintenance coefficient
+         "k.J", # development maintenance rate coefficient
+         "v"#, # energy conductance
+         # , # binding probability
+         )
+vars_desc =  c("species name",
+         "family name",
+         "order name",
+         "class name",
+         "phylum name",
+         "typical temperature in K",
+         "mass-based max ingestion",
+         "energy-based max ingestion",
+         "mass-based max assimilation",
+         "energy-based max assimilation",
+         "type II function half saturation",
+         "type II specific searching rate",
+         "von Bertalanffy growth rates",
+         "volume specific structural mass",
+         "fraction of reserve sent to somatic",
+         "growth efficiency",
+         # , # fraction of rejected flux reserve from SU
+         "mass-based max reserve density",
+         "energy based max reserve density",
+          # , # max somatic structural body Volume
+         "max somatic structural body biomass, based on fraction of max weight that is structure",
+         "yield of structure produced from reserve",
+         "yield of reserve produced from food",
+         "somatic maintenance coefficient",
+         "development maintenance rate coefficient",
+         "energy conductance"
+         # , # binding probability
+         )
+
+keyval = setNames(vars_desc, nm = vars)
+## Chordates
+chordates_allStat = allStat_select(variable = 'phylum', string = 'Chordata')
+
+# select just the variables of interest
+# debugonce(allStat_get_pars)
+chordates_varsList = allStat_get_pars(variables = vars, list = chordates_allStat)
+
+chordates_df = do.call("bind_rows", chordates_varsList) %>%
+  data.frame %>%
+  setNames(nm = vars)
+
+```
+
+```{r pars table}
+chordates_df %>% 
+  group_by(species, class, order, phylum) %>% 
+  pivot_longer(cols = c(T.typical:v), names_to = "variable", values_to = "values") %>% 
+  mutate(values = as.numeric(values),
+         description = recode(variable, !!!keyval)) %>%
+  group_by(variable, description) %>% 
+  summarise(mean = mean(values, na.rm = TRUE),
+            sd = sd(values, na.rm = TRUE)) %>% 
+  mutate(cv = sd/mean) %>% 
+  knitr::kable(digits = 5)
+
+```
+
+## Daphnia
+
+```{r daphnia}
+
+daphnia_df = allStat_select(variable = 'species', string = 'Daphnia_magna', grep = FALSE)
+daphnia_df %>% 
+  pluck(1) %>% 
+  knitr::kable(digits = 5)
+  
+```
+
+## Butter sole
+
+```{r sole}
+sole_df = allStat_select(variable = 'species.en', string = 'sole', grep = TRUE)
+
+sole_df %>% 
+  pluck(3) %>% 
+  knitr::kable(digits = 5)
+```
+
+## Amphipod
+
+```{r hyalella}
+hyalella_df = allStat_select(variable = 'species', string = 'Hyalella_azteca', grep = FALSE)
+hyalella_df %>% 
+  pluck(1) %>% 
+  knitr::kable(digits = 5)
+```
+
+## Atlantic cod
+
+```{r cod}
+cod_df = allStat_select(variable = 'species', string = 'Gadus_morhua', grep = FALSE)
+cod_df %>% 
+  pluck(1) %>% 
+  knitr::kable(digits = 5)
+```
+
+## Creaking frog
+
+```{r frog}
+frog_df = allStat_select(variable = 'species.en', string = 'Quacking frog', grep =FALSE)
+frog_df %>% 
+  pluck(1) %>% 
+  knitr::kable(digits = 5)
+
+```
+
+## Rat
+
+```{r rat}
+rat_df = allStat_select(variable = 'species.en', string = 'Laboratory rat', grep = FALSE)
+rat_df %>% 
+  pluck(1) %>% 
+  data.frame %>% 
+  rownames_to_column("variable") %>% 
+  filter(variable %in% vars) %>% 
+  knitr::kable(digits = 5)
+```
