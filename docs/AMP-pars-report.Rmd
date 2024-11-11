@@ -37,7 +37,7 @@ vars = c("species", # species
          # , # fraction of rejected flux reserve from SU
          "m.Em", # mass-based max reserve density
          "E.m", # energy based max reserve density
-          # , # max somatic structural body Volume
+          "E.G",# , # max somatic structural body Volume
          "del.V", # max somatic structural body biomass # this is a guess based on fraction of max weight that is structure
          "y.V.E", # yield of structure produced from reserve
          "y.E.X", # yield of reserve produced from food
@@ -65,7 +65,7 @@ vars_desc =  c("species name",
          # , # fraction of rejected flux reserve from SU
          "mass-based max reserve density",
          "energy based max reserve density",
-          # , # max somatic structural body Volume
+          "max somatic structural body Volume",
          "max somatic structural body biomass, based on fraction of max weight that is structure",
          "yield of structure produced from reserve",
          "yield of reserve produced from food",
@@ -103,63 +103,77 @@ chordates_df %>%
 
 ```
 
-## Daphnia
+<!-- ## Daphnia -->
 
-```{r daphnia}
+<!-- ```{r daphnia} -->
 
-daphnia_df = allStat_select(variable = 'species', string = 'Daphnia_magna', grep = FALSE)
-daphnia_df %>% 
-  pluck(1) %>% 
-  knitr::kable(digits = 5)
-  
-```
+<!-- daphnia_df = allStat_select(variable = 'species', string = 'Daphnia_magna', grep = FALSE) -->
+<!-- daphnia_df %>%  -->
+<!--   pluck(1) %>%  -->
+<!--   knitr::kable(digits = 5) -->
 
-## Butter sole
+<!-- ``` -->
 
-```{r sole}
-sole_df = allStat_select(variable = 'species.en', string = 'sole', grep = TRUE)
+<!-- ## Butter sole -->
 
-sole_df %>% 
-  pluck(3) %>% 
-  knitr::kable(digits = 5)
-```
+<!-- ```{r sole} -->
+<!-- sole_df = allStat_select(variable = 'species.en', string = 'sole', grep = TRUE) -->
 
-## Amphipod
+<!-- sole_df %>%  -->
+<!--   pluck(3) %>%  -->
+<!--   knitr::kable(digits = 5) -->
+<!-- ``` -->
 
-```{r hyalella}
-hyalella_df = allStat_select(variable = 'species', string = 'Hyalella_azteca', grep = FALSE)
-hyalella_df %>% 
-  pluck(1) %>% 
-  knitr::kable(digits = 5)
-```
+<!-- ## Amphipod -->
 
-## Atlantic cod
+<!-- ```{r hyalella} -->
+<!-- hyalella_df = allStat_select(variable = 'species', string = 'Hyalella_azteca', grep = FALSE) -->
+<!-- hyalella_df %>%  -->
+<!--   pluck(1) %>%  -->
+<!--   knitr::kable(digits = 5) -->
+<!-- ``` -->
 
-```{r cod}
-cod_df = allStat_select(variable = 'species', string = 'Gadus_morhua', grep = FALSE)
-cod_df %>% 
-  pluck(1) %>% 
-  knitr::kable(digits = 5)
-```
+<!-- ## Atlantic cod -->
 
-## Creaking frog
+<!-- ```{r cod} -->
+<!-- cod_df = allStat_select(variable = 'species', string = 'Gadus_morhua', grep = FALSE) -->
+<!-- cod_df %>%  -->
+<!--   pluck(1) %>%  -->
+<!--   knitr::kable(digits = 5) -->
+<!-- ``` -->
 
-```{r frog}
-frog_df = allStat_select(variable = 'species.en', string = 'Quacking frog', grep =FALSE)
-frog_df %>% 
-  pluck(1) %>% 
-  knitr::kable(digits = 5)
+<!-- ## Creaking frog -->
 
-```
+<!-- ```{r frog} -->
+<!-- frog_df = allStat_select(variable = 'species.en', string = 'Quacking frog', grep =FALSE) -->
+<!-- frog_df %>%  -->
+<!--   pluck(1) %>%  -->
+<!--   knitr::kable(digits = 5) -->
 
-## Rat
+<!-- ``` -->
 
-```{r rat}
-rat_df = allStat_select(variable = 'species.en', string = 'Laboratory rat', grep = FALSE)
-rat_df %>% 
-  pluck(1) %>% 
-  data.frame %>% 
-  rownames_to_column("variable") %>% 
-  filter(variable %in% vars) %>% 
-  knitr::kable(digits = 5)
+<!-- ## Rat -->
+
+<!-- ```{r rat} -->
+<!-- rat_df = allStat_select(variable = 'species.en', string = 'Laboratory rat', grep = FALSE) -->
+<!-- rat_df %>%  -->
+<!--   pluck(1) %>%  -->
+<!--   data.frame %>%  -->
+<!--   rownames_to_column("variable") %>%  -->
+<!--   filter(variable %in% vars) %>%  -->
+<!--   knitr::kable(digits = 5) -->
+<!-- ``` -->
+
+## Hares
+
+```{r hares}
+hares_list = allStat_select(variable = 'order', string = 'Lagomorpha', grep = TRUE)
+
+hares_list %>% 
+  pluck(7) %>% data.frame %>% 
+ rownames_to_column("variable") %>% 
+   filter(variable %in% vars) %>%  
+   knitr::kable(digits = 5)
+
+
 ```

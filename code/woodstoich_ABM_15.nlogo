@@ -1,4 +1,7 @@
-extensions [sr]
+extensions [
+  sr
+  pathdir
+]
 
 ;;===========================================================================================================================================================================================;;
 ;;=========================================================== VARIABLE/PARAMETER DEFINITIONS (Netlogo code formality/requirement) ===========================================================;;
@@ -221,6 +224,7 @@ turtles-own [
   k_D                                         ; Rate of SU turnover for developmental maintenance SU (1/t)
   k_G                                         ; Rate of SU turnover for somatic growth SU (1/t)
   k_R                                         ; Rate of SU turnover for reproduction/maturity SU (1/t)
+  k_S                                         ; Rate of SU turnover for carbon-rich reserve to somatic maintenance SU (1/t), nitrogen-rich rate is modified by beta-S below
   beta-S                                      ; Binding preference for carbon-rich reserve to turnover somatic maintenance SU compared to nitrogen rich reserve (between 0 and 1)
   nu                                          ; enegetic conductance
  ;; Other turtle scenario commands/variables
@@ -264,14 +268,23 @@ to setup
   ; Initialize consumer population
   setup-turtles
 
-  set soil-N-crit 1
+  set soil-N-crit 0
   reset-ticks
 end
 
 to init-R-functions
 
+  let file-dir pathdir:get-model-path
+  let R-source "\\calc_roots.R"
+  let R-path word file-dir R-source
+  print R-path
   sr:setup
-  sr:run "source('C:/Users/jrjunker/Documents/Projects/UNT_projects/woodstoich/code/calc_roots.R')"
+  (sr:set "r_path" R-path)
+  (sr:run
+    "source(r_path)"
+  ;"source('C:/Users/jj0895/Documents/Projects/UNT_projects/woodstoich/code/calc_roots.R')"
+    )
+
 
 end
 ;;=========================== GO: RUN PROCEDURES PER TICK ===========================;;
@@ -293,7 +306,7 @@ to go
 ;print "have-baby"
   have-die?                              ; Procedure to determine if turtle dies
 ;print "have-die"
-  patch-N-added-by-turtles
+  patch-N-added-by-turtles               ; Procedure to determine how much nitrogen is added to patch by turtle
 ;print "patch-N-add"
   go-die                                 ; Procedure that kills turtles that were indicated to die, after it deposits the N it would leave on the patch from its future corpse
 ;print "go-die"
@@ -301,11 +314,11 @@ to go
   ; Patch commands
   resource-grow                            ; Procedure to increase the quantity of resources per patch
 ;print "resource-grow"
-  update-resource-N-quantity               ; Procedure to calculate how much
+  update-resource-N-quantity               ; Procedure to calculate how much nitrogen is in the resource
 ;print "update-resrouce-N"
-  update-resource-quality                  ; Procedure to calculate how much N should be in the resource that was just grown
+  update-resource-quality                  ; Procedure to calculate how much nitrogen should be in the resource that was just grown
 ;print "update-resource-quality"
-  update-soil-N-quantity
+  update-soil-N-quantity                   ; Procedure to calculate the gains and losses of N from soil pool There is a leak here!!!
 
   ; Set the color of patches scaled to the nitrogen:carbon ratio (increasing green with increasing resource quality proxy)
   ask patches [
@@ -341,7 +354,7 @@ to setup-resource-parameters-from-interface
   ;; Determine what the quality of resources are in the increased quality resource patches
   set target-cluster-avg-resource-CN-ratio (target-min-CN-resource-ratio)  ; Set the intended resource quality for patches based on user input
   set target-cluster-avg-resource-NC-ratio (1 / target-cluster-avg-resource-CN-ratio)
-  set resource-NC-optimum target-cluster-avg-resource-NC-ratio
+  set resource-NC-optimum (1 / target-min-CN-resource-ratio)
 
   ;; Calculate the maximum area for each cluster based on the number of clusters set by user. If user sets it to 0, defaults to setting the area to 0.
   ifelse num-resource-clusters = 0[
@@ -522,7 +535,7 @@ to setup-resouce-nonclusters
 
   ; Set the resource-NC-ratio to be the target noncluster average, with randomness
   ask noncluster-patches [
-   set resource-CN-ratio 20;(1 / resource-NC-ratio)
+   set resource-CN-ratio 20;(1 / resource-NC-ratio) ; This is where Jim hard-coded in a number to avoid dividing by zero
   ]
 
   ; Calculate the actual mean of the noncluster patches
@@ -571,8 +584,8 @@ to initialize-DEB-parameters
   set Y_EnF 0.8
 
   ; Ingestion/Assimilation parameters
-  set i_max_CrlBrack 5                           ; Arbitrarily set
-  set F_a_CrlBrack 8                               ; Arbitrarily set
+  set i_max_CrlBrack 10                           ; Arbitrarily set
+  set F_a_CrlBrack 6.5                               ; Arbitrarily set
   set F_h (i_max_CrlBrack / F_a_CrlBrack)
   set Food [resource-quantity] of patch-here
   set f (Food / (Food + F_h))
@@ -582,7 +595,7 @@ to initialize-DEB-parameters
   ; Movement parameters
   set sigma movement-somatic-maintenance-cost-multiplier
   ; Reserve fractionation parameters
-  set kappa 0.7
+  set kappa 0.9251;0.7
   set rho_Ec 0.6
   set rho_En rho_Ec
 
@@ -599,7 +612,7 @@ to initialize-DEB-parameters
 
   ; SU parameters
   set beta-S 0.2
-  set nu 0.4
+  set nu 0.10096;0.4
 
   ; State variable misc
   set M_DR_threshold  30
@@ -614,7 +627,7 @@ to initialize-DEB-parameters
   set Mdens_Ec_max 70   ; Maximum carbon-rich reserve density (mol C)
   set Mdens_En_max 50
   ; Development parameters
-  set k_D 0.002
+  set k_D 0.002;
 
   ; Reproduction parameters
   set k_R 0.95
@@ -630,8 +643,8 @@ to initialize-DEB-variables
     set V ((M_V / M_V_SqBrack) ^ 3)
     set M_D 30
     set M_R 5
-    set M_Ec 10  ; Maximum carbon-rich reserve density (mol C)
-    set M_En 10  ; Maximum nitrogen-rich reserve density (mol C)
+    set M_Ec 40  ; Maximum carbon-rich reserve density (mol C)
+    set M_En 40  ; Maximum nitrogen-rich reserve density (mol C)
     set Mdens_Ec (M_Ec / M_V)
     set Mdens_En (M_En / M_V)
 end
@@ -769,14 +782,14 @@ ask turtles [
   ask patch-here [
     let max-J_FA [J_FA] of myself  ; Capture J_FA value from the turtle
     ; Ensure resource-quantity never goes below zero
-    if max-J_FA > resource-quantity [
+    if max-J_FA >= (resource-quantity - resource-quantity-min) [
       set max-J_FA (resource-quantity - resource-quantity-min)
     ]
 
     ; Update the resource-quantity and mole values based on the actual amount eaten
     set resource-quantity (resource-quantity - max-J_FA)
       let Cmol-eaten-this-tick  max-J_FA
-      let Nmol-eaten-this-tick (max-J_FA );* resource-NC-ratio) ;Jim made an adjustment here, not sure if this is correct
+      let Nmol-eaten-this-tick (max-J_FA); * resource-NC-ratio) ;Jim made an adjustment here, not sure if this is correct
 
     set resource-quantity-Cmol (resource-quantity-Cmol - Cmol-eaten-this-tick)
     set resource-quantity-Nmol (resource-quantity-Nmol - Nmol-eaten-this-tick)
@@ -802,16 +815,23 @@ ask turtles [
 
     ; TEMP DYNAMICS PROCEDURE FOR TESTING RESOURCE FEEDBACK
 ;    temp-growth-dynamics-test
+    ifelse multi-reserve-maintenance [
+
+      root-find-multireservemobilization-and-JS
+      ; total reserve flux
+    set J_EcC (Mdens_Ec * ((J_AEc_max_CrlBrack / Mdens_Ec_max) - (M_V * r-dot)))
+    set J_EnC (Mdens_En * ((J_AEn_max_CrlBrack / Mdens_En_max) - (M_V * r-dot)))
+      ] [
+
     root-find-reservemobilization-and-rdot
+          ; Somatic maintenance
+    set J_EcS (1 + sigma) * k_M * M_V
+    set J_EnS (1 + sigma) * k_M * M_V
+    ]
     ; Reserve dynamics
     set J_AEc_max_CrlBrack (aEc_max / (V ^ (2 / 3)))
     set J_AEn_max_CrlBrack (aEn_max / (V ^ (2 / 3)))
-    set J_EcC (Mdens_Ec * ((J_AEc_max_CrlBrack / Mdens_Ec_max) - (M_V * r-dot)))
-    set J_EnC (Mdens_En * ((J_AEn_max_CrlBrack / Mdens_En_max) - (M_V * r-dot)))
 
-    ; Somatic maintenance
-    set J_EcS (1 + sigma) * k_M * M_V
-    set J_EnS (1 + sigma) * k_M * M_V
 
     ; Developmental maintenance
     set J_EcD k_D * M_D
@@ -857,6 +877,23 @@ end
 
 ;; ========== USE ROOT FINDER TO CALCULATE FLUXES ==========;;
 ;;==========================================================;;
+to root-find-multireservemobilization-and-JS
+  let parList []
+  set parList lput sigma parList
+  set parList lput M_V parList
+  set parList lput k_M parList
+  set parList lput Y_SEc parList
+  set parList lput beta-S parList
+  set parList lput Y_SEn parList
+
+  (sr:set "parList" parList)
+  sr:run "x <- calc_multi_roots(parList)"
+
+  set k_s sr:runresult "x[1]"
+  set J_EcS sr:runresult "x[2]"
+  set J_EnS sr:runresult "x[3]"
+end
+
 to root-find-reservemobilization-and-rdot
     ;;set parameters for this example
   let parList []
@@ -996,20 +1033,24 @@ to have-die?
    ; Starvation scenarios
     if (Mdens_Ec <= 0) [
       set starved-to-death? 1
+      print "starved to death C reserve"
       set should-die? 1
     ]
     if (Mdens_En <= 0) [
       set starved-to-death? 1
+      print "starved to death. N reserve"
       set should-die? 1
     ]
 
     if (k_D * M_D < ((1 - kappa) * J_EcC) + ((1 - kappa) * J_EnC))[
       set starved-to-death? 1
+      print "starved to death. development to much."
       set should-die? 1
     ]
 
     if (J_EcS < ((1 + sigma) * k_M * M_V ))[
       set starved-to-death? 1
+      print "starved to death. Not enough reserve flux."
       set should-die? 1
     ]
 
@@ -1099,7 +1140,7 @@ to resource-grow
     ]
 
     ;; Logistic growth equation with adjustable growth rate and carrying capacity
-    ifelse soil-N-quantity < soil-N-crit [
+    ifelse soil-N-quantity <= soil-N-crit [
       set new-resource-grown 0
     ] [
       set new-resource-grown (resource-quantity * resource-specific-growth-rate *
@@ -1129,12 +1170,12 @@ to update-resource-N-quantity
       set soil-N-quantity soil-N-crit
     ]
     set resource-grown-opt-N (new-resource-grown * resource-NC-optimum) ; what is the growth N demand based on resources growing at optimal NC ratio
-    set resource-N-deficit (resource-quantity * resource-NC-optimum) - (resource-quantity * resource-NC-ratio)
+    set resource-N-deficit (resource-quantity * resource-NC-optimum) - (resource-quantity * resource-NC-ratio) ; what is the resource
 
-    ifelse (resource-grown-opt-N) > soil-N-quantity [    ; If resource N demand is greater than soil N pool, set to available soil N pool - N minimum
+    ifelse (resource-grown-opt-N) >= (soil-N-quantity - soil-N-crit) [    ; If resource N demand is greater than soil N pool, set to available soil N pool - N minimum
     set resource-N-uptake (soil-N-quantity - soil-N-crit)
     ][
-     ifelse resource-NC-ratio <= resource-NC-optimum  and (resource-grown-opt-N + resource-N-deficit) > soil-N-quantity[
+     ifelse resource-NC-ratio <= resource-NC-optimum  and (resource-grown-opt-N + resource-N-deficit) >= (soil-N-quantity - soil-N-crit)[
        set resource-N-uptake (resource-grown-opt-N + (soil-N-quantity - soil-N-crit))
       ][
        set resource-N-uptake new-resource-grown + resource-N-deficit
@@ -1250,7 +1291,7 @@ num-resource-clusters
 num-resource-clusters
 0
 15
-6.0
+15.0
 1
 1
 NIL
@@ -1265,7 +1306,7 @@ initial-population
 initial-population
 0
 100
-98.0
+100.0
 1
 1
 NIL
@@ -1294,7 +1335,7 @@ INPUTBOX
 825
 130
 consumer-body-CN-ratio
-6.0
+10.0
 1
 0
 Number
@@ -1468,7 +1509,7 @@ CHOOSER
 movement-type
 movement-type
 "brownian-walk" "correlated-random-walk"
-1
+0
 
 SLIDER
 673
@@ -1479,7 +1520,7 @@ movement-somatic-maintenance-cost-multiplier
 movement-somatic-maintenance-cost-multiplier
 0
 10
-10.0
+0.0
 1
 1
 NIL
@@ -1509,7 +1550,7 @@ resource-specific-growth-rate
 resource-specific-growth-rate
 0.001
 2
-0.011
+1.996
 0.005
 1
 NIL
@@ -1623,7 +1664,7 @@ initial-resource-quantity-as-percent-of-carrying-capacity
 initial-resource-quantity-as-percent-of-carrying-capacity
 0.01
 1
-0.51
+0.91
 0.1
 1
 NIL
@@ -1689,7 +1730,7 @@ INPUTBOX
 1307
 195
 target-min-CN-resource-ratio
-20.0
+10.0
 1
 0
 Number
@@ -1700,7 +1741,7 @@ INPUTBOX
 1307
 132
 target-max-CN-resource-ratio
-40.0
+20.0
 1
 0
 Number
@@ -1743,7 +1784,7 @@ background-soil-N-quantity
 background-soil-N-quantity
 1
 100
-2.0
+7.0
 1
 1
 NIL
@@ -1758,11 +1799,22 @@ patch-soil-N-multiplier
 patch-soil-N-multiplier
 0
 20
-2.0
+5.0
 1
 1
 NIL
 HORIZONTAL
+
+SWITCH
+673
+439
+876
+472
+multi-reserve-maintenance
+multi-reserve-maintenance
+0
+1
+-1000
 
 @#$#@#$#@
 ## WHAT IS IT?

@@ -6,7 +6,7 @@ parsDf = expand.grid(
   M_V = seq(10,100,length.out = nboots),
   k_M = seq(0.1,0.9, length.out = nboots),
   Y_SEc = seq(0.1, 0.9, length.out = nboots),
-  k_S = 0.5,
+  # k_S = 0.5,
   B_S = 0.3,
   Y_SEn = seq(0.1, 0.5, length.out = nboots)
 )
@@ -14,6 +14,64 @@ parsDf = expand.grid(
 parsList = split(parsDf, seq(nrow(parsDf)))
 rootList= purrr::map(parsList, \(y){
 # calc_multi_roots = function(){
+  model <- function(x){
+    #x[1] = ks, x[2] = J_SEc, x[3] = J_SEn
+    sigma = y[[1]]
+    M_V = y[[2]]
+    k_M = y[[3]]
+    Y_SEc = y[[4]]
+    # k_S = y[[5]]
+    B_S = y[[5]]
+    Y_SEn = y[[6]]
+    ## maintenance cost
+    JS = (1+sigma)*k_M*M_V
+    # functions to solve for
+    A <- B_S*(Y_SEc * x[2] + Y_SEn * x[3] - JS)
+    B <- Y_SEc*x[2]*(x[2] + x[3]) - JS * (B_S*x[2] + x[2] + x[3])
+    C <- -x[2]*(x[2]+x[3])*JS
+
+    ## find the discriminate
+    discriminant = ((B^2) - 4*A*C)
+
+    # Compute both solutions for k_s
+    k_s1 <- (-B + sqrt(discriminant)) / (2 * A)
+    k_s2 <- (-B - sqrt(discriminant)) / (2 * A)
+    ks_disc <- ifelse(k_s1 > 0, k_s1, k_s2)
+
+    F1 <- ((-B + sqrt((B^2) - 4*A*C))/2*A) - x[1]
+    F2 <- x[1] * Y_SEc * (x[1] + x[2])/(x[2]) + B_S * x[1] * Y_SEn * (x[2]*B_S*x[1])/((x[1] + x[2])*(x[2]+x[3]+B_S*x[1])) - JS
+    F3 <- ((B_S^2)*(x[1]^2)*Y_SEn*x[2])/(JS - x[1] * Y_SEc * (x[1])) - x[2] - B_S * x[1] - x[3]
+    q = c(F1 = F1, F2 = F2, F3 = F3)
+    return(q)}
+  ks = 0.1
+  J_SEc = 10
+  J_SEn = 5
+  (ss <- multiroot(f = model, start = c(ks, J_SEc, J_SEn), maxiter = 1e2))
+  ss.root = ss$root
+  return(ss.root)
+# }
+  })
+
+rootDf = rootList %>% map(~.x %>% setNames(., nm = c('ks','J_SEc','J_SEn'))) %>% bind_rows %>%
+  bind_cols(parsDf,.)
+
+rootDf %>% filter(ks > 0 & J_SEc > 0 & J_SEn > 0 ) %>% View()
+
+rootDf %>%
+  filter(ks > 0 & J_SEc > 0 & J_SEn > 0 ) %>%
+  ggplot(aes(x = ks, y = J_SEn))+
+  geom_point()
+
+rootDf %>%
+  filter(ks > 0 & J_SEc > 0 & J_SEn > 0 ) %>%
+  ggplot(aes(x = ks, y = J_SEc))+
+  geom_point()
+
+###
+### calculate discriminant from quadratic formula
+parsList = split(parsDf, seq(nrow(parsDf)))
+discList= purrr::map(parsList, \(y){
+  # calc_multi_roots = function(){
   model <- function(x){
     #x[1] = ks, x[2] = J_SEc, x[3] = J_SEn
     sigma = y[[1]]
@@ -37,28 +95,61 @@ rootList= purrr::map(parsList, \(y){
     k_s1 <- (-B + sqrt(discriminant)) / (2 * A)
     k_s2 <- (-B - sqrt(discriminant)) / (2 * A)
 
-
-    F1 <- (-B + sqrt((B^2) - 4*A*C))/2*A) - x[1]
+    F1 <- max(c(((-B + sqrt((B^2) - 4*A*C))/2*A), ((-B - sqrt((B^2) - 4*A*C))/2*A))) - x[1]
     F2 <- x[1] * Y_SEc * (x[1] + x[2])/(x[2]) + B_S * x[1] * Y_SEn * (x[2]*B_S*x[1])/((x[1] + x[2])*(x[2]+x[3]+B_S*x[1])) - JS
     F3 <- ((B_S^2)*(x[1]^2)*Y_SEn*x[2])/(JS - x[1] * Y_SEc * (k_S)) - x[2] - B_S * x[1] - x[3]
     q = c(F1 = F1, F2 = F2, F3 = F3)
-    return(q)}
+    return(q)
+    }
   ks = 0.1
   J_SEc = 10
   J_SEn = 5
   (ss <- multiroot(f = model, start = c(ks, J_SEc, J_SEn), maxiter = 1e2))
   ss.root = ss$root
-  return(ss.root)
-# }
-  })
+  discmodel <- function(x){
+    #x[1] = ks, x[2] = J_SEc, x[3] = J_SEn
+    sigma = y[[1]]
+    M_V = y[[2]]
+    k_M = y[[3]]
+    Y_SEc = y[[4]]
+    k_S = y[[5]]
+    B_S = y[[6]]
+    Y_SEn = y[[7]]
+    ## maintenance cost
+    JS = (1+sigma)*k_M*M_V
+    # functions to solve for
+    A <- B_S*(Y_SEc * x[2] + Y_SEn * x[3] - JS)
+    B <- Y_SEc*x[2]*(x[2] + x[3]) - JS * (B_S*x[2] + x[2] + x[3])
+    C <- -x[2]*(x[2]+x[3])*JS
 
-rootDf = rootList %>% map(~.x %>% setNames(., nm = c('ks','J_SEc','J_SEn'))) %>% bind_rows %>%
-  bind_cols(parsDf,.)
+    ## find the discriminate
+    discriminant = ((B^2) - 4*A*C)
 
-rootDf %>% filter(ks > 0 & J_SEc > 0 & J_SEn > 0 ) %>% View()
+    # Compute both solutions for k_s
+    k_s1 <- (-B + sqrt(discriminant)) / (2 * A)
+    k_s2 <- (-B - sqrt(discriminant)) / (2 * A)
+    ifelse(k_s1 > 0, ks_disc = k_s1, ks_disc = k_s2)
+
+    F1 <-  ks_disc - x[1]
+    F2 <- x[1] * Y_SEc * (x[1] + x[2])/(x[2]) + B_S * x[1] * Y_SEn * (x[2]*B_S*x[1])/((x[1] + x[2])*(x[2]+x[3]+B_S*x[1])) - JS
+    F3 <- ((B_S^2)*(x[1]^2)*Y_SEn*x[2])/(JS - x[1] * Y_SEc * (k_S)) - x[2] - B_S * x[1] - x[3]
+    q = c(F1 = F1, F2 = F2, F3 = F3)
+
+    return(ks.list = c(
+      'ks1' = k_s1,
+      'ks2' = k_s2
+      ))}
+
+  return(list(
+    "ss.root" = ss.root,
+    "ks" = discmodel$ks.list
+              ))
+
+  # }
+})
 
 
-###
+
 
 debugonce(calc_multi_roots)
 calc_multi_roots(y)
