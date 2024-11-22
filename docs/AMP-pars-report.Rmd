@@ -170,9 +170,9 @@ chordates_df %>%
 hares_list = allStat_select(variable = 'order', string = 'Lagomorpha', grep = TRUE)
 
 hares_list %>% 
-  pluck(7) %>% data.frame %>% 
+  pluck(5) %>% data.frame %>% 
  rownames_to_column("variable") %>% 
-   filter(variable %in% vars) %>%  
+   # filter(variable %in% vars) %>%  
    knitr::kable(digits = 5)
 
 

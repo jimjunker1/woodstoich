@@ -19,11 +19,11 @@ calc_roots_devrepro = function(y){
     # Functions for root finding
     F1 <- (x[4] * (((1-kappa) * J_EcC)/((((1-kappa) *J_EcC) + x[4]))))- x[1]
     F2 <- (x[4] * (((1-kappa) * J_EnC * x[4])/((((1-kappa) * J_EcC) + x[4]) * (((1-kappa) * J_EcC) + ((1-kappa) * J_EnC)  + (rho_D_N * x[4])))))- x[2]
-    F3 <- (x[4] * (((1-kappa) * J_EnC * x[4])/((((1-kappa) * J_EcC) + x[4]) * (((1-kappa) * J_EcC) + ((1-kappa) * J_EnC)  + (rho_D_N * x[4])) * (((1-kappa) * J_EcC) + ((1-kappa) * J_EnC)  + x[5] + (rho_D_HR * x[4])))))- (x[3] * Y_HRD)
-    F4 <- x[1] + x[2] + (x[3] * Y_HRD) - J_D
+    F3 <- (x[4] * (((1-kappa) * J_EnC * x[4])/((((1-kappa) * J_EcC) + x[4]) * (((1-kappa) * J_EcC) + ((1-kappa) * J_EnC)  + (rho_D_N * x[4])) * (((1-kappa) * J_EcC) + ((1-kappa) * J_EnC)  + x[3] + (rho_D_HR * x[4])))))- (x[3]* Y_HRD)
+    F4 <- x[1] + x[2] + (x[3] * Y_HRD) - x[4]#J_D
     q = c(F1 = F1, F2 = F2, F3 = F3, F4 = F4)
     return(q)}
-  
+
 
   J_EcD = 0.5
   J_EnD = 0.4

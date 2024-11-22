@@ -29,7 +29,7 @@ calc_roots_somatic = function(y){
     F4 <- (x[6] * ((kappa * x[2] * x[6])/(((kappa * x[1]) + x[6]) * ((kappa * x[1]) + (kappa * x[2])  + (rho_S_N * x[6])))))- x[4]
     F5 <- (x[6] * ((kappa * x[2] * x[6])/(((kappa * x[1]) + x[6]) * ((kappa * x[1]) + (kappa * x[2])  + (rho_S_N * x[6])) * ((kappa * x[1]) + (kappa * x[2])  + x[5] + (rho_S_V * x[6])))))- (x[5] * Y_VS)
     F6 <- x[3] + x[4] + (x[5] * Y_VS) - J_S
-    F7 <- (1/M_V) * (((((k_G)^-1) + (((x[1] - x[3])/Y_EcV)^-1) + (((x[2] - x[4])/Y_EnV)^-1) + (((x[1] - x[3])/Y_EcV)+((x[2] - x[4])/Y_EnV))^-1)^-1) - x[5])
+    F7 <- (1/M_V) * (((((k_G)^-1) + (((x[1] - x[3])/Y_EcV)^-1) + (((x[2] - x[4])/Y_EnV)^-1) + (((x[1] - x[3])/Y_EcV)+((x[2] - x[4])/Y_EnV))^-1)^-1) - x[5]) -x[7]
     q = c(F1 = F1, F2 = F2, F3 = F3, F4 = F4, F5 = F5, F6 = F6, F7 = F7)
     return(q)}
 
