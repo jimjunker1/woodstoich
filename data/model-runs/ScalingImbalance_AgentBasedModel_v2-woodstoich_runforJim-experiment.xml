@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE experiments SYSTEM "behaviorspace.dtd">
+<experiments>
+  <experiment name="woodstoich_runforJim" repetitions="8" runMetricsEveryStep="true">
+    <setup>setup</setup>
+    <go>go</go>
+    <timeLimit steps="1825"/>
+    <exitCondition>not any? turtles</exitCondition>
+    <metric>count turtles with [is-adult? = 0]</metric>
+    <metric>count turtles with [is-adult? = 1]</metric>
+    <metric>mean [M_V] of turtles</metric>
+    <metric>variance [M_V] of turtles</metric>
+    <metric>mean [M_Ec] of turtles</metric>
+    <metric>variance [M_Ec] of turtles</metric>
+    <metric>mean [M_En] of turtles</metric>
+    <metric>variance [M_En] of turtles</metric>
+    <metric>mean [M_H] of turtles</metric>
+    <metric>mean [M_R] of turtles</metric>
+    <metric>mean [Wc] of turtles</metric>
+    <metric>variance [Wc] of turtles</metric>
+    <metric>mean [Wn] of turtles</metric>
+    <metric>variance [Wn] of turtles</metric>
+    <metric>mean [Xc] of turtles</metric>
+    <metric>variance [Xc] of turtles</metric>
+    <metric>mean [Xn] of turtles</metric>
+    <metric>variance [Xn] of turtles</metric>
+    <metric>mean [resource-quantity-Nmol] of patches with [resource-patch? = 1]</metric>
+    <metric>variance [resource-quantity-Nmol] of patches with [resource-patch? = 1]</metric>
+    <metric>mean [resource-CN-ratio] of patches</metric>
+    <metric>variance [resource-CN-ratio] of patches with [resource-patch? = 1]</metric>
+    <metric>mean [resource-quantity] of patches</metric>
+    <metric>variance [resource-quantity] of patches</metric>
+    <metric>sum [resource-quantity] of patches</metric>
+    <metric>sum [resource-quantity-Nmol] of patches</metric>
+    <metric>sum [soil-N-quantity] of patches with [resource-patch? = 0]</metric>
+    <metric>sum [soil-N-quantity] of patches with [resource-patch? = 1]</metric>
+    <metric>sum [consumer-total-Nmol] of turtles</metric>
+    <enumeratedValueSet variable="target-max-CN-resource-ratio">
+      <value value="55"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="resource-cluster-scatter">
+      <value value="0.5"/>
+    </enumeratedValueSet>
+    <steppedValueSet variable="N-reserve-threshold" first="0" step="0.2" last="0.6"/>
+    <enumeratedValueSet variable="patch-soil-N-multiplier">
+      <value value="0.25"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="resource-patch-aggregation">
+      <value value="8"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="resource-specific-growth-rate">
+      <value value="1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="movement-type">
+      <value value="&quot;correlated-random-walk&quot;"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="percent-resource-quality-improve">
+      <value value="5"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="turtle-initial-location-spread">
+      <value value="1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="initial-population">
+      <value value="50"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="mortality-risk">
+      <value value="4.0E-4"/>
+    </enumeratedValueSet>
+    <steppedValueSet variable="movement-somatic-maintenance-cost-multiplier" first="0" step="0.5" last="1.5"/>
+    <enumeratedValueSet variable="percent-world-no-resources">
+      <value value="20"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="consumer-body-CN-ratio">
+      <value value="5"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="resource-carrying-capacity">
+      <value value="1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="target-world-avg-resource-CN-ratio">
+      <value value="45"/>
+    </enumeratedValueSet>
+    <steppedValueSet variable="num-resource-clusters" first="0" step="10" last="10"/>
+    <enumeratedValueSet variable="distance-consumer-walks">
+      <value value="1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="initial-resource-quantity-as-percent-of-carrying-capacity">
+      <value value="1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="initial-fraction-adults">
+      <value value="0.4"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="fraction-structure-shrinkage-allowed">
+      <value value="0.4"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="overall-resource-patchiness">
+      <value value="0.1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="target-min-CN-resource-ratio">
+      <value value="35"/>
+    </enumeratedValueSet>
+  </experiment>
+</experiments>

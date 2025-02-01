@@ -1,0 +1,7 @@
+"BehaviorSpace results (NetLogo 6.4.0)","Lists version 2.0"
+"ScalingImbalance_AgentBasedModel_v2.nlogo"
+"woodstoich_runforJim"
+"12/15/2024 22:43:38:648 -0600"
+"min-pxcor","max-pxcor","min-pycor","max-pycor"
+"-25","25","-25","25"
+"[reporter]","[run number]","target-max-CN-resource-ratio","resource-cluster-scatter","N-reserve-threshold","patch-soil-N-multiplier","resource-patch-aggregation","resource-specific-growth-rate","movement-type","percent-resource-quality-improve","turtle-initial-location-spread","initial-population","mortality-risk","movement-somatic-maintenance-cost-multiplier","percent-world-no-resources","consumer-body-CN-ratio","resource-carrying-capacity","target-world-avg-resource-CN-ratio","num-resource-clusters","distance-consumer-walks","initial-resource-quantity-as-percent-of-carrying-capacity","initial-fraction-adults","fraction-structure-shrinkage-allowed","overall-resource-patchiness","target-min-CN-resource-ratio","[step]"
