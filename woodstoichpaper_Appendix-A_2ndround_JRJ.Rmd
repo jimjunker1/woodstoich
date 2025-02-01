@@ -539,7 +539,7 @@ A version with compound parameters (avoids mis-estimating dependent parameters) 
 J_{{E_i}C} &= {M_{E_i}}\biggl(\dot{\nu}\biggl(\frac{M_V}{[M_V]}\biggr)^{-1/3} - \dot{r}\biggr)
 \end{align}
 
-where, $\nu = \dot{p_{Am}}/[E_{m}]$ and $\dot{p_{Am}}$ is the surface-area-specific maximum assimilation rate and $[E_m]$ is the maximum energy density.
+where, $\dot{\nu} = \dot{p_{Am}}/[E_{m}]$ and $\dot{p_{Am}}$ is the surface-area-specific maximum assimilation rate and $[E_m]$ is the maximum energy density.
 
 \newpage
 
